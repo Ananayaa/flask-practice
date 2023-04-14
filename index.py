@@ -19,8 +19,16 @@ def contact():
       print(name,email,phone,message)
    return render_template('contact.html')
 
-@app.route('/signup')
+@app.route('/signup',methods = ["POST","GET"])
 def signup():
+   if request.method == "POST":
+      fname = request.form.get("fname")
+      lname = request.form.get("lname")
+      gender = request.form.get("gender")
+      email = request.form.get("email")
+      phone = request.form.get("phone")
+      dob = request.form.get("dob")
+      print(fname,lname,email,phone,dob,gender)
    return render_template('signup.html')
 
 @app.route('/login')
