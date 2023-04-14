@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request 
+from view import view
 app = Flask(__name__)
 
 @app.route('/')
@@ -22,13 +23,14 @@ def contact():
 @app.route('/signup',methods = ["POST","GET"])
 def signup():
    if request.method == "POST":
-      fname = request.form.get("fname")
+      fname = request.form.get("firstname")
       lname = request.form.get("lname")
       gender = request.form.get("gender")
       email = request.form.get("email")
       phone = request.form.get("phone")
       dob = request.form.get("dob")
-      print(fname,lname,email,phone,dob,gender)
+      # print(fname,lname,email,phone,dob,gender)
+      view.create(fname=fname,lname=lname,dob=dob,emailid=email,phoneno=phone,gender=gender)
    return render_template('signup.html')
 
 @app.route('/login')
@@ -36,5 +38,5 @@ def login():
    return render_template('login.html')
 
 if __name__ == '__main__':
-   app.run(host = "0.0.0.0",debug=True,port="5001")
+   app.run(host = "0.0.0.0",debug=True,port="5002")
 
