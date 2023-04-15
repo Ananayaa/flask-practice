@@ -29,7 +29,6 @@ def signup():
       email = request.form.get("email")
       phone = request.form.get("phone")
       dob = request.form.get("dob")
-      # print(fname,lname,email,phone,dob,gender)
       result = view.create(fname=fname,lname=lname,dob=dob,emailid=email,phoneno=phone,gender=gender)
       if result == "New user is created":
          return render_template("login.html")
