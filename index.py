@@ -34,6 +34,14 @@ def signup():
          return render_template("login.html")
       else:
          return render_template('signup.html')
+   return render_template('signup.html')
+
+@app.route('/details',methods = ["GET"])
+def details():
+   if request.method == "GET":
+      show=view.read()
+      print(show)
+      return render_template('index.html',show=show)
 
 @app.route('/login')
 def login():

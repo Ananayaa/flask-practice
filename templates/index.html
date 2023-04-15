@@ -1,1 +1,30 @@
 {% extends "base.html" %}
+{% block content %}
+<div class="container">
+
+    <form action="/details" method="get">
+        <button class="details" type="submit">SHOW DETAILS</button>
+    </form>
+    <ul>
+
+        {% for i in show %}
+        <li>
+            name : {{i[1]}}
+        </li>
+        <li>
+            lname : {{i[2]}}
+        </li>
+        <li>
+            phoneno : {{i[3]}}
+        </li>
+        <li>
+            gmail : {{i[4]}}
+        </li>
+        <li>
+            dob : {{i[5]}}
+        </li>
+
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
